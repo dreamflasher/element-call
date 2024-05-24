@@ -190,7 +190,7 @@ export async function initClient(
 
   await client.initCrypto();
   client.setGlobalErrorOnUnknownDevices(false);
-  await client.startClient();
+  await client.startClient({ clientWellKnownPollPeriod: 60 * 10 });
   await waitForSync(client);
 
   return client;
